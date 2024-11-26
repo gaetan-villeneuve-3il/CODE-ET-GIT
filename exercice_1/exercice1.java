@@ -6,18 +6,31 @@ public class FactureManager {
 
         // reduction selon la catégorie
         if (typeProduit.equals("Alimentaire")) {
-            total -= total * 0.05; // Réduction de 5%
+           
+            total=reductionTotal(total,0.05); // Réduction de 5%
+
         } else if (typeProduit.equals("Electronique")) {
-            total -= total * 0.1; // Réduction de 10%
+            
+            total=reductionTotal(total,0.1); // Réduction de 10%
+
         } else if (typeProduit.equals("Luxe")) {
-            total -= total * 0.15; // Réduction de 15%
+             
+            total=reductionTotal(total,0.15);// Réduction de 15%
         }
 
         // Reduction sur le total
         if (total > 1000) {
-            total -= total * 0.05; // Réduction supplémentaire de 5% pour les gros montants
+            
+            total=reductionTotal(total,0.05);// Réduction supplémentaire de 5% pour les gros montants
         }
 
         return total;
+    }
+    /**
+     * foction qui aplique une reduction
+     */
+    public double reductionTotal(double total,double taux){
+          total -= total * taux; 
+          return total;
     }
 }
